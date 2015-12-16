@@ -10,33 +10,33 @@ var myNest = new echo.Echonest({
     api_key: 'JDAHBKZZ2Y9QVMEVO'
 });
 
-var countLength = function(songs){
+var countLength = function(songs, res){
 	var finalArray = [];
 
 	for(var i=0; i<songs.length; i++){
 		if(songs[i].tracks.length !== 0){
-			if(maxDuration > playlistDuration){
 				var track_id = songs[i].tracks[0].foreign_id.substring(14);
 				finalArray.push(track_id);
-				getTrack(track_id);
-			}else{
-				console.log(finalArray);
-				return finalArray;
-			}
+				//getTrack(track_id);
+			// }else{
+			// 	console.log(finalArray);
+			// 	res.send(JSON.stringify(finalArray));
+			// 	return;
+			// }
 		}
 	}
-	console.log(finalArray);
-	return finalArray;
+	//console.log(finalArray);
+	res.send(JSON.stringify(finalArray));
+	return;
 }
 
-var nestAjax = function(query){
+var nestAjax = function(query, res){
 
 	var tracks = [];
 
 	myNest.song.search(query, function (err1, resp1) {
 	    if (err1) {
 	    	console.log('Error in first nest call:\n');
-	        console.log(err1, response);
 	    } else {
 			query.start = 100;
 			myNest.song.search(query, function (err2, resp2) {
@@ -46,13 +46,13 @@ var nestAjax = function(query){
 	    		} else {
 	    			if(resp2.songs.length !== 0){
 	    				tracks = resp1.songs.concat(resp2.songs);
-	    				//console.log(JSON.stringify(tracks));
-	    				countLength(tracks);
+	    				console.log(tracks);
+	    				countLength(tracks, res);
 	    			}
 	    			else{
 	    				tracks = resp1.songs;
-	    				//console.log(JSON.stringify(tracks));
-	    				countLength(tracks);
+	    				console.log(tracks);
+	    				countLength(tracks, res);
 	    			}
 
 	    		}
@@ -61,82 +61,6 @@ var nestAjax = function(query){
 	});
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 	    	response.songs.forEach(function(value, index, array){
-// 	    		tempIds.push(value.id);
-// 	    		if(index+1 === array.length){
-// 	        		query.start = 100;
-// 					myNest.song.search(query, function (error, response) {
-// 					    if (error) {
-// 					        console.log(error, response);
-// 					    } else {
-// 					    	if(response.songs.length === 0){
-// 					    		var i = 0;
-// 	    						while(maxDuration > playlistDuration && i < tempIds.length){
-// 	    							console.log(maxDuration + " vs " + playlistDuration);
-// 									spotifyIds.push(tempIds[i]);
-// 	    							playlistDuration += getTrackDuration(tempIds[i])
-// 	    							i++;
-// 	    						}
-// 	    						console.log(JSON.stringify(spotifyIds));
-// 					    		return spotifyIds;
-// 					    	}
-// 					    	else{
-// 	    						response.songs.forEach(function(value, index, array){
-// 	    							tempIds.push(value.id);
-// 	    							if(index+1 === array.length){
-// 	    								var i = 0;
-// 	    								while(maxDuration > playlistDuration && i < tempIds.length){
-// 	    									console.log(maxDuration + " vs " + playlistDuration);
-// 											spotifyIds.push(tempIds[i]);
-// 	    									playlistDuration += getTrackDuration(tempIds[i])
-// 	    									i++;
-// 	    								}
-// 										console.log(spotifyIds);
-// 	    								return spotifyIds;
-// 	    							}
-// 	    						});
-// 					    	}
-// 					    }
-// 					});
-// 	    		}
-// 	    	});
-// 	    }
-// 	});
-// }
 var getTrack = function(track_id){
 	spotify.lookup({ type: 'track', id: track_id}, function(err, data) {
 	    if ( err ) {
@@ -149,19 +73,25 @@ var getTrack = function(track_id){
 	});
 }
 
-var createPlaylist = function(){
+var createPlaylist = function(query, res){
 
-	var query = {
-		"tempo": 600, //0-1000
-		"genres": ["rock", "pop", "rap", "reggae","country"],
-		"mood": 800, //0-1000
-		"occasion": 1, //1-4
-		"acousticness": 500, //0-1000
-		"duration": 908765423456, // in ms starting from like 500000
-		"bucket": ["id:spotify", "tracks"]
-	};
+	// var query = {
+	// 	"tempo": 600, //0-1000
+	// 	"genres": ["rock", "pop", "rap", "reggae","country"],
+	// 	"mood": 800, //0-1000
+	// 	"occasion": 1, //1-4
+	// 	"acousticness": 500, //0-1000
+	// 	"duration": 908765423456, // in ms starting from like 500000
+	// 	"bucket": ["id:spotify", "tracks"]
+	// };
 
-	maxDuration = query.duration;
+
+	if(query.duration === 0){
+		maxDuration = 9007199254740992;
+	}
+	else{
+		maxDuration = query.duration;
+	}
 	var q = {};
 
 	q.results = 100;
@@ -187,11 +117,9 @@ var createPlaylist = function(){
 		q.max_energy = 0.5 + 0.5 * (query.mood/1000);
 	}
 
-	q.style = query.genres;
-
-	if(q.occasion === 1){
+	if(query.occasion === 1){
 		q.min_danceability = 0.6;
-	} else if(q.occasion === 2){
+	} else if(query.occasion === 2){
 		q.min_danceability = 0.3;
 		q.max_danceability = 0.6;
 	} else{
@@ -211,7 +139,7 @@ var createPlaylist = function(){
 
 	console.log(JSON.stringify(q));
 
-	nestAjax(q);
+	nestAjax(q, res);
 }
 
 router.createPlaylist = createPlaylist;

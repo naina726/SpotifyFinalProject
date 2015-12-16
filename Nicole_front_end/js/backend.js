@@ -1,4 +1,3 @@
-var query = "";
 var allPLs = [];
 var currentPlaylist = [];
 
@@ -74,7 +73,7 @@ function prepareQueryString() {
 	console.log("endYr = " + endYr);
 
 
-		query = {
+		var query = {
 			"tempo": tempo, //0-1000
 			"genres": genres,
 			"mood": mood, //0-1000
@@ -85,6 +84,7 @@ function prepareQueryString() {
 			"to": endYr
 		};
 
+		console.log(JSON.stringify(query));
 		getData(query);
 
 }
@@ -99,7 +99,7 @@ function selectOccasion(selectedElement) {
 
 
 
-var getData = function(query){
+function getData(query){
 	$.ajax({
 		url: '/search',
 		type: 'GET',
