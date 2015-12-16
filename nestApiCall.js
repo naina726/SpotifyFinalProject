@@ -1,9 +1,6 @@
 var spotifyIds = [];
 var queryString = "http://developer.echonest.com/api/v4/song/search?api_key=JDAHBKZZ2Y9QVMEVO&format=json&results=100&artist=radiohead";
 
-
-
-
 /* 
 
 var compileNestSearch = function(paramsFromForm) {
@@ -12,7 +9,6 @@ var compileNestSearch = function(paramsFromForm) {
 
 }
 */
-
 
 var nestAjax = function(){
     $.ajax({

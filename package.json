@@ -14,6 +14,7 @@
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
     "spotify": "~0.3.0",
-    "echonest": "~0.0.3"
+    "echonest": "~0.0.3",
+    "jquery": "~2.1.4"
   }
 }

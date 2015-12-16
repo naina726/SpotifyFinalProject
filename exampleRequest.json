@@ -1,9 +1,8 @@
 {
-	"chill": 0.5,
-	"speed": 0.8,
-	"genres": ["pop", "rap", "reggae", "kpop"],
-	"decades": [],
-	"instrumentation": [],
-	"infinite": false,
-	"length": 90
+	"tempo": 300,
+	"genres": ["pop", "rap", "reggae"],
+	"mood": 600,
+	"occasion": 2,
+	"acousticness": 300,
+	"duration": 90
 }
