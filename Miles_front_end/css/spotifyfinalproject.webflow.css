@@ -1,0 +1,114 @@
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #9068be;
+  font-weight: 700;
+}
+
+.more-decades{
+  display:none;
+}
+
+.more-genres{
+  display:none;
+}
+
+.decades{
+  color: #e62739;
+}
+
+.occasion {
+  width: auto;
+  margin: 7px 0px;
+  padding-right: 5px;
+  padding-left: 5px;
+  clear: left;
+  border: 2px solid white;
+  border-radius: 0px;
+  background-color: #e62739;
+  color: white;
+  font-weight: 700;
+}
+
+.occasion._1 {
+  background-color: #6ed3cf;
+  color: white;
+}
+
+.occasion._3 {
+  background-color: #9068be;
+}
+
+.occasion._4 {
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: #e1e8f0;
+  color: #9068be;
+}
+
+.arrow-button {
+  background-color: transparent;
+  color: black;
+}
+
+.selection {
+  width: 226px;
+  margin-top: 10px;
+  background-color: white;
+}
+
+.form-column {
+  border: 5px solid #e1e8f0;
+  background-color: white;
+}
+
+.save-button {
+  margin: 5px;
+  background-color: #6ed3cf;
+}
+
+.body {
+  font-family: Verdana, Geneva, sans-serif;
+  font-weight: 700;
+}
+
+.checkbox-row {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.text-1 {
+  color: #9068be;
+}
+
+.text-2 {
+  color: #e62739;
+}
+
+.toggle {
+  display: inline-block;
+  width: 111px;
+}
+
+.toggle-text {
+  display: inline-block;
+  width: auto;
+  margin-right: 5px;
+}
+
+.buffer {
+  height: 75px;
+}
+
+.hours {
+  display: inline-block;
+  width: 73px;
+  margin-right: 5px;
+}
+
+.minutes {
+  display: inline-block;
+  width: 89px;
+  margin-right: 5px;
+}
+
