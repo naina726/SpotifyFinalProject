@@ -14,18 +14,15 @@ var countLength = function(songs){
 	var finalArray = [];
 
 	for(var i=0; i<songs.length; i++){
-		if(maxDuration > playlistDuration){
-			var track = getTrack(songs[i].title, songs[i].artist_name);
-			console.log(track);
-			// if(trackLength !== false){
-			// 	finalArray.push(songs[i].id);
-			// 	playlistDuration += getTrackDuration(songs[i].id)
-			// } else{
-			// 	console.log('Failed to get trackLength');
-			// }
-		}else{
-			//console.log(finalArray);
-			return finalArray;
+		if(songs[i].tracks.length !== 0){
+			if(maxDuration > playlistDuration){
+				var track_id = songs[i].tracks[0].foreign_id.substring(14);
+				finalArray.push(track_id);
+				getTrack(track_id);
+			}else{
+				console.log(finalArray);
+				return finalArray;
+			}
 		}
 	}
 	console.log(finalArray);
@@ -49,12 +46,12 @@ var nestAjax = function(query){
 	    		} else {
 	    			if(resp2.songs.length !== 0){
 	    				tracks = resp1.songs.concat(resp2.songs);
-	    				console.log(tracks);
+	    				//console.log(JSON.stringify(tracks));
 	    				countLength(tracks);
 	    			}
 	    			else{
 	    				tracks = resp1.songs;
-	    				console.log(tracks);
+	    				//console.log(JSON.stringify(tracks));
 	    				countLength(tracks);
 	    			}
 
@@ -140,16 +137,14 @@ var nestAjax = function(query){
 // 	    }
 // 	});
 // }
-
-var getTrack = function(titl, artist_name){
-	spotify.lookup({ type: 'track', title: titl, artist: artist_name}, function(err, data) {
+var getTrack = function(track_id){
+	spotify.lookup({ type: 'track', id: track_id}, function(err, data) {
 	    if ( err ) {
 	        //console.log('Error occurred: ' + err);
 	        return false;
 	    }
 	    else{
-	    	console.log(data);
-	    	return data;
+	    	playlistDuration += data.duration_ms;
 	    }
 	});
 }
@@ -168,7 +163,10 @@ var createPlaylist = function(){
 
 	maxDuration = query.duration;
 	var q = {};
+
 	q.results = 100;
+
+	q.bucket = ["id:spotify", "tracks"];
 
 	if(query.tempo === 0){
 
