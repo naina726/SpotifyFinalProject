@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+		<!-- google fonts api -->
+		<link href='https://fonts.googleapis.com/css?family=Lato|Montserrat' rel='stylesheet' type='text/css'>
+		<!-- Icons for music player -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		
+		<!-- Slider Jquery css -->
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+		<!-- our css styling -->
+		<link rel="stylesheet" type="text/css" href="finalProj.css">
+
+		
+
+
+		<!--miles's linked docs -->
+		<meta name="generator" content="Webflow">
+  		<link rel="stylesheet" type="text/css" href="css/normalize.css">
+		<link rel="stylesheet" type="text/css" href="css/toggle.css">
+		<link rel="stylesheet" type="text/css" href="css/webflow.css">
+		<link rel="stylesheet" type="text/css" href="css/spotifyfinalproject.webflow.css">
+		<link rel="shortcut icon" type="image/x-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico">
+		<link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
+
+	</head>
+	<body>
+		<div id="all" class="container-fluid">
+			
+			<div class="row">
+
+				<div id="playerDashDiv" class="col-md-8">
+					<div >
+						<h1> Until Death</h1>
+					</div>
+				<div class="row">
+					<div id="playerControls" class="col-md-12 col-lg-12">
+<!-- 						<div id="backBtnDiv" class="col-xs-6 col-sm-3 col-md-3"> -->
+							<button id="backBtn"class="btn btn-default btn-circle" type="button" id="prevSong"><i class="fa fa-backward fa-lg"></i></button>
+<!-- 						</div>
+						<div id="spotifyWidgetDiv"class="col-xs-6 col-sm-5 col-md-5"> -->
+							<iframe id="spotWidget" src="https://embed.spotify.com/?uri=spotify:track:7F7kL3i6SDEIbDcoJZGiig" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+<!-- 						</div>
+						<div id="fwdBtnDiv" class="col-xs-6  col-sm-3 col-md-3">  -->
+							<button id="fwdBtn" class="btn btn-default btn-circle" type="button" id="nextSong"><i class="fa fa-forward fa-lg"></i></button>
+<!-- 						</div> -->
+						
+					</div>
+				</div> <!--end of row -->
+					<div id="upNextDiv"  >
+						<h3>Up Next...</h3>
+					</div>
+					
+				</div>
+				<div id="rightSideBar" class="hoverArea col-md-4">
+					<div id="paramsDiv">
+						<!-- <h1> Hi Im the PARAMS div</h1> -->
+<!-- /////////////// MILES' PARAMS HTML CODE /////////////// -->
+
+<!-- <div class="w-section">
+    <div class="w-row">
+      <div class="w-col w-col-9">
+      </div> -->
+      <!-- <div class="w-col w-col-3 form-column"> -->
+        <div class="form-column">
+          <div>
+            <div class="buffer"></div>
+            <div>
+              <div>
+                 <div data-role="rangeslider">
+                    <label for="tempo-slider">Tempo</label>
+                    Slow &nbsp;&nbsp;&nbsp;<input type="range" name="tempo-slider" id="tempo-slider" value="200" min="0" max="500">&nbsp;&nbsp;&nbsp;Fast
+                  </div>
+                  
+              </div>
+
+              <br>
+              <div>
+                 <div data-role="rangeslider">
+                    <label for="mood-slider">Mood</label>
+                    Sad&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="range" name="mood-slider" id="mood-slider" value="400" min="0" max="1000">&nbsp;&nbsp;&nbsp;Happy
+                  </div>
+                  
+              </div>
+<br>
+               <div>
+           		 <div data-role="rangeslider">
+                    <label for="acous-slider">Acousticness</label>
+                    Acous&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="range" name="acous-slider" id="acous-slider" value="200" min="0" max="1000">&nbsp;&nbsp;&nbsp;Elec
+                  </div>
+          		</div>
+          		<br>
+
+              <div id="buttonsDiv">
+                  <a href="#" class="w-button occasion _1 selected">Dance Party</a>
+                  <a href="#" class="w-button occasion _2">Dinner</a>
+                  <a href="#" class="w-button occasion _3">Relaxation</a>
+                  <a href="#" class="w-button occasion _4">Chill</a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="w-row checkbox-row">
+              <div class="w-col w-col-4">
+                <div class="w-form">
+                  <form id="genre-col1" name="genre-col1" data-name="genre-col1">
+                    <div class="w-checkbox">
+                      <input id="checkboxJazz" type="checkbox" name="checkbox-jazz" data-name="Checkbox Jazz" class="w-checkbox-input" value="jazz">
+                      <label for="checkboxJazz" class="w-form-label">Jazz</label>
+                    </div>
+                    <div class="w-checkbox">
+                      <input id="checkboxPop" type="checkbox" name="checkbox-pop" data-name="Checkbox Pop" class="w-checkbox-input" value="pop">
+                      <label for="checkboxPop" class="w-form-label">Pop</label>
+                    </div>
+                    <div class="w-checkbox">
+                      <input id="checkboxReggae" type="checkbox" name="checkbox-reggae" data-name="Checkbox Reggae" class="w-checkbox-input" value="reggae">
+                      <label for="checkboxReggae" class="w-form-label">Reggae</label>
+                    </div>
+                    <div class="w-checkbox">
+                      <input id="checkboxClassical" type="checkbox" name="checkbox-classical" data-name="Checkbox Classical" class="w-checkbox-input" value="classical">
+                      <label for="checkboxClassical" class="w-form-label">Classical</label>
+                    </div>
+                  </form>
+                  
+                </div>
+              </div>
+              <div class="w-col w-col-4">
+                <div class="w-form">
+                  <form id="genre-col2" name="genre-col2" data-name="genre-col2">
+                    <div class="w-checkbox">
+                      <input id="checkboxHip-hop" type="checkbox" name="checkbox-hip-hop" data-name="Checkbox Hip-hop" class="w-checkbox-input" value="hip hop">
+                      <label for="checkboxHip-hop" class="w-form-label">Hip-hop</label>
+                    </div>
+                    <div class="w-checkbox">
+                      <input id="checkboxRap" type="checkbox" name="checkbox-rap" data-name="Checkbox Rap" class="w-checkbox-input" value="rap">
+                      <label for="checkboxRap" class="w-form-label">Rap</label>
+                    </div>
+                    <div class="w-checkbox">
+                      <input id="checkboxSalsa" type="checkbox" name="checkbox-salsa" data-name="Checkbox Salsa" class="w-checkbox-input" value="salsa">
+                      <label for="checkboxSalsa" class="w-form-label">Salsa</label>
+                    </div>
+                    <div class="w-checkbox">
+                      <input id="checkboKpop" type="checkbox" name="checkbox-kpop" data-name="Checkbox Kpop" class="w-checkbox-input" value="kpop">
+                      <label for="checkboxKpop" class="w-form-label">Kpop</label>
+                    </div>
+                  </form>
+                  
+                </div>
+              </div>
+              <div class="w-col w-col-4">
+                <div class="w-form">
+                  <form id="genre-col3" name="genre-col3" data-name="genre-col3">
+                    <div class="w-checkbox">
+                      <input id="checkboxAmbient" type="checkbox" name="checkbox-ambient" data-name="Checkbox Ambient" class="w-checkbox-input" value="ambient">
+                      <label for="checkboxAmbient" class="w-form-label">Ambient</label>
+                    </div>
+                    <div class="w-checkbox">
+                      <input id="checkboxSpokenWord" type="checkbox" name="checkbox-spokenWord" data-name="Checkbox SpokenWord" class="w-checkbox-input" value="spoken word">
+                      <label for="checkboxSpokenWord" class="w-form-label">Spoken Word</label>
+                    </div>
+                    <div class="w-checkbox">
+                      <input id="checkboxHardRock" type="checkbox" name="checkbox-hardRock" data-name="Checkbox HardRock" class="w-checkbox-input" value="hard rock">
+                      <label for="checkboxHardRock" class="w-form-label">Hard Rock</label>
+                    </div>
+                    <div class="w-checkbox">
+                      <input id="checkboxRock" type="checkbox" name="checkbox-rock" data-name="Checkbox Rock" class="w-checkbox-input" value="rock">
+                      <label for="checkboxRock" class="w-form-label">Rock</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <a href="#" id="arrow-button" class="w-button arrow-button show" id="show-genres">Show More Genres <span class="text-1">&gt;</span></a>
+
+            <div class="w-row checkbox-row more-genres">
+              <div class="w-col w-col-4">
+                <div class="w-form">
+                  <form id="genre-col4" name="genre-col4" data-name="genre-col4">
+                    <div class="w-checkbox">
+                      <input id="checkboxIndie" type="checkbox" name="checkbox-indie" data-name="Checkbox Indie" class="w-checkbox-input">
+                      <label for="checkboxIndie" class="w-form-label">Indie</label>
+                    </div>
+                    <div class="w-checkbox">
+                      <input id="checkboxEDM" type="checkbox" name="checkbox-EDM" data-name="Checkbox EDM" class="w-checkbox-input">
+                      <label for="checkboxEDM" class="w-form-label">EDM/Dance</label>
+                    </div>
+                    <div class="w-checkbox">
+                      <input id="checkboxCountry" type="checkbox" name="checkbox-country" data-name="Checkbox Country" class="w-checkbox-input">
+                      <label for="checkboxCountry" class="w-form-label">Country</label>
+                    </div>
+                    <div class="w-checkbox">
+                      <input id="checkboxFolk" type="checkbox" name="checkbox-folk" data-name="Checkbox Folk" class="w-checkbox-input">
+                      <label for="checkboxFolk" class="w-form-label">Folk</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="w-col w-col-4">
+                <div class="w-form">
+                  <form id="genre-col5" name="genre-col5" data-name="genre-col5">
+                    <div class="w-checkbox">
+                      <input id="checkboxMetal" type="checkbox" name="checkboxmetal" data-name="Checkbox Metal" class="w-checkbox-input">
+                      <label for="checkboxMetal" class="w-form-label">Metal</label>
+                    </div>
+                    <div class="w-checkbox">
+                      <input id="checkboxSoul" type="checkbox" name="checkbox-soul" data-name="Checkbox Soul" class="w-checkbox-input">
+                      <label for="checkboxSoul" class="w-form-label">Soul</label>
+                    </div>
+                    <div class="w-checkbox">
+                      <input id="checkboxBlues" type="checkbox" name="checkbox-blues" data-name="Checkbox Blues" class="w-checkbox-input">
+                      <label for="checkboxBlues" class="w-form-label">Blues</label>
+                    </div>
+                    <div class="w-checkbox">
+                      <input id="checkboxPunk" type="checkbox" name="checkbox-punk" data-name="Checkbox Punk" class="w-checkbox-input">
+                      <label for="checkboxPunk" class="w-form-label">Punk</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="w-col w-col-4">
+                <div class="w-form">
+                  <form id="genre-col6" name="genre-col6" data-name="genre-col6">
+                    <div class="w-checkbox">
+                      <input id="checkboxFunk" type="checkbox" name="checkbox-funk" data-name="Checkbox Funk" class="w-checkbox-input">
+                      <label for="checkboxFunk" class="w-form-label">Funk</label>
+                    </div>
+                    <div class="w-checkbox">
+                      <input id="checkboxChrist" type="checkbox" name="checkbox-christ" data-name="Checkbox Christ" class="w-checkbox-input">
+                      <label for="checkboxChrist" class="w-form-label">Christian</label>
+                    </div>
+                    <div class="w-checkbox">
+                      <input id="checkboxAlt" type="checkbox" name="checkbox-alt" data-name="Checkbox Alt" class="w-checkbox-input">
+                      <label for="checkboxalt" class="w-form-label">Alternative</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <a href="#" class="w-button arrow-button" id="show-decades">Show Decades <span class="text-2">&gt;</span></a>
+            <div class="w-row checkbox-row more-decades">
+            	<p>
+				  
+				  <input type="text" id="decadeRange" readonly style="border:0; color:#f6931f; font-weight:bold;">
+				</p>
+            	<div id="slider-range"></div>
+            </div>
+          </div>
+
+
+
+          <div>
+            <div>
+<!--               <div class="w-form">
+                <form id="email-form-3" name="email-form-3" data-name="Email Form 3">
+                  <div class="toggle-text">Infinite</div>
+                  <div class="w-checkbox toggle">
+                    
+                    <input type="checkbox" id="toggle">
+                    <label for="toggle" class="well"></label>
+
+                  </div>
+                </form>
+                
+              </div>
+            </div> -->
+            <div>
+              <div class="w-form extra-margin">
+                <form id="email-form-3" name="email-form-3" data-name="Email Form 3">
+                  <input id="Hours" type="text" placeholder="Hours" name="Hours" required="required" data-name="Hours" class="w-input hours">
+                  <div class="toggle-text">hours and&nbsp;</div>
+                  <input id="Minutes" type="text" placeholder="Minutes" name="Minutes" required="required" data-name="Minutes" class="w-input minutes">
+                  <div class="toggle-text">minutes.&nbsp;</div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="w-row">
+              <div id="searchBtnDiv" class="w-col w-col-6"><a id="searchBtn" href="#" class="w-button save-button">Search</a>
+              </div>
+              <div class="w-col w-col-6"><a id="savePLBtn" href="#" class="w-button save-button">Save this Playlist</a>
+              </div>
+            </div>
+          </div>
+        </div>
+ <!--      </div>  
+    </div>
+  </div> -->
+
+
+<!-- /////////////// END OF MILES' CODE!!!!! /////////////// -->
+
+
+			
+					</div>
+					<div id="playlistDiv" >
+
+
+						<div id="PLsSection" >
+
+
+							<div id="PLOptionsBar" > 
+								
+									<button type="button" id="deletePLsBtn" class="btn btn-default"> Delete a playlist</button> 
+									
+							</div>
+							
+							<h3 id="noPLsh3"> You have no Playlists!</h3>
+
+														
+							<div id="PLDisplayArea">
+							</div>
+
+						</div> <!--end of groups section-->
+
+
+
+
+
+
+
+
+						<h1> My Playlists <i class="fa fa-arrow-up"></i></h1>
+						
+
+
+
+					</div>
+					
+				</div> <!-- end of right sidebar -->
+			</div> <!-- end of row div -->
+
+
+<!-- Modal -->
+			<div class="modal fade" id="PLModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabel"></h4>
+			      </div>
+			      <div class="modal-body">
+
+
+<!--Contents to create new group-->
+			      	<div id="newPLInputsDiv">
+			      		<form id="newPLInputs" class="form-horizontal">
+			      			<div class="form-group">
+			      				<label class="col-sm-2 control-label" for="newPLName">Playlist Name</label>
+			      				<div class="col-sm-10">
+			      				<input id="newPLName" type="text" class="form-control" placeholder="eg.'Favorites'"/>
+			      				</div>
+			      			</div>
+			      		</form>
+			      	</div>
+<!--end of new group creation-->
+
+<!-- 				<div id="addToGroupDiv">
+					<br>
+					<table id="groupOptsTable" class="table table-hover">
+
+					</table>
+
+				</div> -->
+			        
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			        <button type="button" class="btn btn-primary" id="saveChangesBtn">Save changes</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>    <!--end of modal-->
+
+
+		</div> <!-- end of fluid container -->
+
+
+				<!-- Includes JQuery library -->
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+				<!-- Latest compiled and minified JavaScript -->
+				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+<!-- 
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+				 -->
+				<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> 
+				<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+				<script type="text/javascript" src="js/modernizr.js"></script>
+				<script type="text/javascript" src="js/webflow.js"></script>
+
+				<script type="text/javascript" src="js/backend.js"></script>
+  				<!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+				
+			</body>
+		</html>

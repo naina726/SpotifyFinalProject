@@ -1,0 +1,140 @@
+/* elements */
+
+h1 { 
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+/* classes */
+
+.hoverArea {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-circle {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 20px;
+  line-height: 1.42;
+  border-radius: 30px;
+}
+
+.ui-widget-header {
+    border: 1px solid #aaaaaa;
+    background: #9068BE;
+    color: #222222;
+    font-weight: bold;
+}
+
+.ui-widget-content {
+    border: 1px solid #9068BE;
+    background: #FFFFFF;
+    color: #222222;
+}
+
+/* ID's */
+
+#playerDashDiv { 
+
+    position: fixed;
+    left:0;
+    height: 100vh;
+    width: 70%;
+    display: inline-block;
+
+}
+
+#rightSideBar {
+
+    right: 0;
+    /*width: 30%;*/
+    height: 100vh;
+    display: inline-block;
+    position: absolute;
+    font-family: 'Lato', sans-serif;
+
+}
+
+
+#paramsDiv {
+    height: 100%;
+    width: 100%;
+    background: #6ed3cf; /*light blue*/
+    position: absolute;
+    /*color: #E8EAED;*/
+    overflow: scroll;
+}
+
+#playlistDiv {
+    position: absolute;
+    top: -90%;
+    height : 100%;
+    width : 100%;
+    background: #6ED3CF; 
+    opacity:1;
+    color: #E8EAED;
+    z-index: 100;
+}
+
+
+
+#playlistDiv:hover {
+    top: 0;
+    -webkit-transition: all 1s, -webkit-transform 1s;
+    transition: all 1s, transform 1s;
+    width:100%;
+    height:100%;
+    opacity:1;
+}
+
+#upNextDiv {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+}
+
+#playerControls {
+  position: fixed;
+}
+
+#fwdBtn {
+    margin-top: 18%;
+    left: 55%;
+    position: absolute;
+}
+
+#backBtn {
+    position: absolute;
+    left: 12%;
+    margin-top: 18%;
+}
+
+#spotWidget {
+  position: absolute;
+  left: 25%;
+  margin-top: 5%;
+}
+
+#playlistDiv h1 {
+  position: inherit;
+  bottom: 0;
+  margin-left: 15%;
+}
+
+#searchBtn {
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+#searchBtnDiv {
+  padding-left: 10%;
+}
+
+.w-row.checkbox-row.more-decades {
+  width: 90%;
+}
