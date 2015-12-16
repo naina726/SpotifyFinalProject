@@ -1,0 +1,366 @@
+doctype html(lang='en')
+head
+    meta(charset='utf-8')
+    | &#x9;&#x9;
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    | &#x9;&#x9;
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // Latest compiled and minified CSS
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7', crossorigin='anonymous')
+    // Optional theme
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css', integrity='sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r', crossorigin='anonymous')
+    // google fonts api
+    link(href='https://fonts.googleapis.com/css?family=Lato|Montserrat', rel='stylesheet', type='text/css')
+    // Icons for music player
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+    // Slider Jquery css
+    link(rel='stylesheet', href='http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css')
+    // our css styling
+    link(rel='stylesheet', type='text/css', href='finalProj.css')
+    // miles's linked docs
+    meta(name='generator', content='Webflow')
+    |   &#x9;&#x9;
+    link(rel='stylesheet', type='text/css', href='css/normalize.css')
+    | &#x9;&#x9;
+    link(rel='stylesheet', type='text/css', href='css/toggle.css')
+    | &#x9;&#x9;
+    link(rel='stylesheet', type='text/css', href='css/webflow.css')
+    | &#x9;&#x9;
+    link(rel='stylesheet', type='text/css', href='css/spotifyfinalproject.webflow.css')
+    | &#x9;&#x9;
+    link(rel='shortcut icon', type='image/x-icon', href='https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico')
+    | &#x9;&#x9;
+    link(rel='apple-touch-icon', href='https://daks2k3a4ib2z.cloudfront.net/img/webclip.png')
+  | &#x9;
+  body
+    #all.container-fluid
+      .row
+        #playerDashDiv.col-md-8
+          div
+            h1  Until Death
+          | &#x9;&#x9;&#x9;&#x9;
+          .row
+            #playerControls.col-md-12.col-lg-12
+              // <div id="backBtnDiv" class="col-xs-6 col-sm-3 col-md-3">
+              button#backBtn.btn.btn-default.btn-circle(type='button')
+                i.fa.fa-backward.fa-lg
+              //
+                </div>
+                <div id="spotifyWidgetDiv"class="col-xs-6 col-sm-5 col-md-5">
+              iframe#spotWidget(src='https://embed.spotify.com/?uri=spotify:track:7F7kL3i6SDEIbDcoJZGiig', width='300', height='380', frameborder='0', allowtransparency='true')
+              //
+                </div>
+                <div id="fwdBtnDiv" class="col-xs-6  col-sm-3 col-md-3">
+              button#fwdBtn.btn.btn-default.btn-circle(type='button')
+                i.fa.fa-forward.fa-lg
+              // </div>
+          // end of row
+          #upNextDiv
+            h3 Up Next...
+        | &#x9;&#x9;&#x9;&#x9;
+        #rightSideBar.hoverArea.col-md-4
+          #paramsDiv
+            // <h1> Hi Im the PARAMS div</h1>
+            // /////////////// MILES' PARAMS HTML CODE ///////////////
+            //
+              <div class="w-section">
+              <div class="w-row">
+              <div class="w-col w-col-9">
+              </div>
+            // <div class="w-col w-col-3 form-column">
+            .form-column
+              div
+                .buffer
+                |             
+                div
+                  div
+                    div(data-role='rangeslider')
+                      label(for='tempo-slider') Tempo
+                      |                     Slow &nbsp;&nbsp;&nbsp;
+                      input#tempo-slider(type='range', name='tempo-slider', value='200', min='0', max='500')
+                      | &nbsp;&nbsp;&nbsp;Fast
+                  |               
+                  br
+                  |               
+                  div
+                    div(data-role='rangeslider')
+                      label(for='mood-slider') Mood
+                      |                     Sad&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      input#mood-slider(type='range', name='mood-slider', value='400', min='0', max='1000')
+                      | &nbsp;&nbsp;&nbsp;Happy
+                  br
+                  |                
+                  div
+                    div(data-role='rangeslider')
+                      label(for='acous-slider') Acousticness
+                      |                     Acous&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      input#acous-slider(type='range', name='acous-slider', value='200', min='0', max='1000')
+                      | &nbsp;&nbsp;&nbsp;Elec
+                  |           &#x9;&#x9;
+                  br
+                  |               
+                  #buttonsDiv
+                    a.w-button.occasion._1.selected(href='#') Dance Party
+                    |                   
+                    a.w-button.occasion._2(href='#') Dinner
+                    |                   
+                    a.w-button.occasion._3(href='#') Relaxation
+                    |                   
+                    a.w-button.occasion._4(href='#') Chill
+              |           
+              div
+                .w-row.checkbox-row
+                  .w-col.w-col-4
+                    .w-form
+                      form#genre-col1(name='genre-col1', data-name='genre-col1')
+                        .w-checkbox
+                          input#checkboxJazz.w-checkbox-input(type='checkbox', name='checkbox-jazz', data-name='Checkbox Jazz', value='jazz')
+                          |                       
+                          label.w-form-label(for='checkboxJazz') Jazz
+                        |                     
+                        .w-checkbox
+                          input#checkboxPop.w-checkbox-input(type='checkbox', name='checkbox-pop', data-name='Checkbox Pop', value='pop')
+                          |                       
+                          label.w-form-label(for='checkboxPop') Pop
+                        |                     
+                        .w-checkbox
+                          input#checkboxReggae.w-checkbox-input(type='checkbox', name='checkbox-reggae', data-name='Checkbox Reggae', value='reggae')
+                          |                       
+                          label.w-form-label(for='checkboxReggae') Reggae
+                        |                     
+                        .w-checkbox
+                          input#checkboxClassical.w-checkbox-input(type='checkbox', name='checkbox-classical', data-name='Checkbox Classical', value='classical')
+                          |                       
+                          label.w-form-label(for='checkboxClassical') Classical
+                  |               
+                  .w-col.w-col-4
+                    .w-form
+                      form#genre-col2(name='genre-col2', data-name='genre-col2')
+                        .w-checkbox
+                          input#checkboxHip-hop.w-checkbox-input(type='checkbox', name='checkbox-hip-hop', data-name='Checkbox Hip-hop', value='hip hop')
+                          |                       
+                          label.w-form-label(for='checkboxHip-hop') Hip-hop
+                        |                     
+                        .w-checkbox
+                          input#checkboxRap.w-checkbox-input(type='checkbox', name='checkbox-rap', data-name='Checkbox Rap', value='rap')
+                          |                       
+                          label.w-form-label(for='checkboxRap') Rap
+                        |                     
+                        .w-checkbox
+                          input#checkboxSalsa.w-checkbox-input(type='checkbox', name='checkbox-salsa', data-name='Checkbox Salsa', value='salsa')
+                          |                       
+                          label.w-form-label(for='checkboxSalsa') Salsa
+                        |                     
+                        .w-checkbox
+                          input#checkboKpop.w-checkbox-input(type='checkbox', name='checkbox-kpop', data-name='Checkbox Kpop', value='kpop')
+                          |                       
+                          label.w-form-label(for='checkboxKpop') Kpop
+                  |               
+                  .w-col.w-col-4
+                    .w-form
+                      form#genre-col3(name='genre-col3', data-name='genre-col3')
+                        .w-checkbox
+                          input#checkboxAmbient.w-checkbox-input(type='checkbox', name='checkbox-ambient', data-name='Checkbox Ambient', value='ambient')
+                          |                       
+                          label.w-form-label(for='checkboxAmbient') Ambient
+                        |                     
+                        .w-checkbox
+                          input#checkboxSpokenWord.w-checkbox-input(type='checkbox', name='checkbox-spokenWord', data-name='Checkbox SpokenWord', value='spoken word')
+                          |                       
+                          label.w-form-label(for='checkboxSpokenWord') Spoken Word
+                        |                     
+                        .w-checkbox
+                          input#checkboxHardRock.w-checkbox-input(type='checkbox', name='checkbox-hardRock', data-name='Checkbox HardRock', value='hard rock')
+                          |                       
+                          label.w-form-label(for='checkboxHardRock') Hard Rock
+                        |                     
+                        .w-checkbox
+                          input#checkboxRock.w-checkbox-input(type='checkbox', name='checkbox-rock', data-name='Checkbox Rock', value='rock')
+                          |                       
+                          label.w-form-label(for='checkboxRock') Rock
+              |           
+              div
+                a#arrow-button.w-button.arrow-button.show(href='#')
+                  | Show More Genres 
+                  span.text-1 &gt;
+                |             
+                .w-row.checkbox-row.more-genres
+                  .w-col.w-col-4
+                    .w-form
+                      form#genre-col4(name='genre-col4', data-name='genre-col4')
+                        .w-checkbox
+                          input#checkboxIndie.w-checkbox-input(type='checkbox', name='checkbox-indie', data-name='Checkbox Indie')
+                          |                       
+                          label.w-form-label(for='checkboxIndie') Indie
+                        |                     
+                        .w-checkbox
+                          input#checkboxEDM.w-checkbox-input(type='checkbox', name='checkbox-EDM', data-name='Checkbox EDM')
+                          |                       
+                          label.w-form-label(for='checkboxEDM') EDM/Dance
+                        |                     
+                        .w-checkbox
+                          input#checkboxCountry.w-checkbox-input(type='checkbox', name='checkbox-country', data-name='Checkbox Country')
+                          |                       
+                          label.w-form-label(for='checkboxCountry') Country
+                        |                     
+                        .w-checkbox
+                          input#checkboxFolk.w-checkbox-input(type='checkbox', name='checkbox-folk', data-name='Checkbox Folk')
+                          |                       
+                          label.w-form-label(for='checkboxFolk') Folk
+                  |               
+                  .w-col.w-col-4
+                    .w-form
+                      form#genre-col5(name='genre-col5', data-name='genre-col5')
+                        .w-checkbox
+                          input#checkboxMetal.w-checkbox-input(type='checkbox', name='checkboxmetal', data-name='Checkbox Metal')
+                          |                       
+                          label.w-form-label(for='checkboxMetal') Metal
+                        |                     
+                        .w-checkbox
+                          input#checkboxSoul.w-checkbox-input(type='checkbox', name='checkbox-soul', data-name='Checkbox Soul')
+                          |                       
+                          label.w-form-label(for='checkboxSoul') Soul
+                        |                     
+                        .w-checkbox
+                          input#checkboxBlues.w-checkbox-input(type='checkbox', name='checkbox-blues', data-name='Checkbox Blues')
+                          |                       
+                          label.w-form-label(for='checkboxBlues') Blues
+                        |                     
+                        .w-checkbox
+                          input#checkboxPunk.w-checkbox-input(type='checkbox', name='checkbox-punk', data-name='Checkbox Punk')
+                          |                       
+                          label.w-form-label(for='checkboxPunk') Punk
+                  |               
+                  .w-col.w-col-4
+                    .w-form
+                      form#genre-col6(name='genre-col6', data-name='genre-col6')
+                        .w-checkbox
+                          input#checkboxFunk.w-checkbox-input(type='checkbox', name='checkbox-funk', data-name='Checkbox Funk')
+                          |                       
+                          label.w-form-label(for='checkboxFunk') Funk
+                        |                     
+                        .w-checkbox
+                          input#checkboxChrist.w-checkbox-input(type='checkbox', name='checkbox-christ', data-name='Checkbox Christ')
+                          |                       
+                          label.w-form-label(for='checkboxChrist') Christian
+                        |                     
+                        .w-checkbox
+                          input#checkboxAlt.w-checkbox-input(type='checkbox', name='checkbox-alt', data-name='Checkbox Alt')
+                          |                       
+                          label.w-form-label(for='checkboxalt') Alternative
+              |           
+              div
+                a#show-decades.w-button.arrow-button(href='#')
+                  | Show Decades 
+                  span.text-2 &gt;
+                |             
+                .w-row.checkbox-row.more-decades
+                  p
+                    input#decadeRange(type='text', readonly='', style='border:0; color:#f6931f; font-weight:bold;')
+                  |             &#x9;
+                  #slider-range
+              |           
+              div
+                div
+                  //
+                    <div class="w-form">
+                    <form id="email-form-3" name="email-form-3" data-name="Email Form 3">
+                    <div class="toggle-text">Infinite</div>
+                    <div class="w-checkbox toggle">
+                    <input type="checkbox" id="toggle">
+                    <label for="toggle" class="well"></label>
+                    </div>
+                    </form>
+                    </div>
+                    </div>
+                  div
+                    .w-form.extra-margin
+                      form#email-form-3(name='email-form-3', data-name='Email Form 3')
+                        input#Hours.w-input.hours(type='text', placeholder='Hours', name='Hours', required='required', data-name='Hours')
+                        |                   
+                        .toggle-text hours and&nbsp;
+                        |                   
+                        input#Minutes.w-input.minutes(type='text', placeholder='Minutes', name='Minutes', required='required', data-name='Minutes')
+                        |                   
+                        .toggle-text minutes.&nbsp;
+                |           
+                div
+                  .w-row
+                    #searchBtnDiv.w-col.w-col-6
+                      a#searchBtn.w-button.save-button(href='#') Search
+                    |               
+                    .w-col.w-col-6
+                      a#savePLBtn.w-button.save-button(href='#') Save this Playlist
+              //
+                </div>
+                </div>
+                </div>
+              // /////////////// END OF MILES' CODE!!!!! ///////////////
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            #playlistDiv
+              #PLsSection
+                #PLOptionsBar
+                  button#deletePLsBtn.btn.btn-default(type='button')  Delete a playlist
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                h3#noPLsh3  You have no Playlists!
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                #PLDisplayArea
+              // end of groups section
+              h1
+                | My Playlists 
+                i.fa.fa-arrow-up
+          // end of right sidebar
+        // end of row div
+        // Modal
+        #PLModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+          .modal-dialog(role='document')
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                  span(aria-hidden='true') &times;
+                | &#x9;&#x9;&#x9;        
+                h4#myModalLabel.modal-title
+              | &#x9;&#x9;&#x9;      
+              .modal-body
+                // Contents to create new group
+                #newPLInputsDiv
+                  form#newPLInputs.form-horizontal
+                    .form-group
+                      label.col-sm-2.control-label(for='newPLName') Playlist Name
+                      | &#x9;&#x9;&#x9;      &#x9;&#x9;&#x9;&#x9;
+                      .col-sm-10
+                        input#newPLName.form-control(type='text', placeholder="eg.'Favorites'")
+                // end of new group creation
+                //
+                  <div id="addToGroupDiv">
+                  <br>
+                  <table id="groupOptsTable" class="table table-hover">
+                  </table>
+                  </div>
+              | &#x9;&#x9;&#x9;      
+              .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Cancel
+                | &#x9;&#x9;&#x9;        
+                button#saveChangesBtn.btn.btn-primary(type='button') Save changes
+        // end of modal
+      // end of fluid container
+      // Includes JQuery library
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+      // Latest compiled and minified JavaScript
+      script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js', integrity='sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==', crossorigin='anonymous')
+      //
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+      script(src='http://code.jquery.com/ui/1.9.2/jquery-ui.js')
+      |  
+      | &#x9;&#x9;&#x9;&#x9;
+      script(src='http://code.jquery.com/ui/1.11.4/jquery-ui.js')
+      | &#x9;&#x9;&#x9;&#x9;
+      script(type='text/javascript', src='js/modernizr.js')
+      | &#x9;&#x9;&#x9;&#x9;
+      script(type='text/javascript', src='js/webflow.js')
+      | &#x9;&#x9;&#x9;&#x9;
+      script(type='text/javascript', src='js/backend.js')
+      //if lte IE 9
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js')
