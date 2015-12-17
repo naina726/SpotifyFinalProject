@@ -8,6 +8,14 @@ h1 {
 
 /* classes */
 
+.upNext{
+    height: 10vh;
+    width: 10%;
+    display: inline-block;
+    border: 2px solid black;
+}
+
+
 .hoverArea {
     position: relative;
     overflow: hidden;
@@ -137,4 +145,68 @@ h1 {
 
 .w-row.checkbox-row.more-decades {
   width: 90%;
+}
+
+
+#PLsSection h3 {
+  color: white;
+    top: 40%;
+    left: 25%;
+    position: absolute;
+    text-align: center;
+    font-size: large;
+}
+
+
+/*ul {
+    list-style-type: none;
+
+    display: inline-block;
+}*/
+
+#PLsSection ul {
+  list-style-type: square;
+  text-decoration: underline;
+}
+
+#PLDisplayArea {
+    color: white;
+    top: 10%;
+    left: 25%;
+    position: absolute;
+    text-align: center;
+    font-size: large;
+}
+
+
+/*a:link {
+  color:#ffffff;
+  text-decoration: none;
+}
+
+a:visited {
+  color:#ffffff;
+  text-decoration: none;
+}*/
+
+#PLOptionsBar {
+
+    width: 100%;
+    position: absolute;
+
+}
+
+#deletePLBtn {
+  left: 30%;
+  position: absolute;
+}
+
+a:hover {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+  font-weight: bolder;
 }

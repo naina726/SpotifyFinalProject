@@ -29,7 +29,7 @@ html(lang='en')
       .row
         #playerDashDiv.col-md-8
           div
-            h1  Until Death
+            h1  PLaylistsPLZ
           .row
             #playerControls.col-md-12.col-lg-12
               // <div id="backBtnDiv" class="col-xs-6 col-sm-3 col-md-3">
@@ -47,7 +47,18 @@ html(lang='en')
               // </div>
           // end of row
           #upNextDiv
-            h3 Up Next...
+            h3
+              i.fa.fa-arrow-down
+              |    Up Next...
+            .upNext
+            .upNext
+            .upNext
+            .upNext
+            .upNext
+            .upNext
+            .upNext
+            .upNext
+            .upNext
         #rightSideBar.hoverArea.col-md-4
           #paramsDiv
             // <h1> Hi Im the PARAMS div</h1>
@@ -222,17 +233,11 @@ html(lang='en')
                 </div>
               // /////////////// END OF MILES' CODE!!!!! ///////////////
             #playlistDiv
+              #PLOptionsBar
+                button#deletePLBtn.btn.btn-default(type='button')  Delete a playlist
               #PLsSection
-                #PLOptionsBar
-                  button#deletePLsBtn.btn.btn-default(type='button')  Delete a playlist
-                if data.length === 0
-                  h3#noPLsh3  You have no Playlists!
-                  #PLDisplayArea
-                else
-                  each object in data
-                    ul(id="allPLsUL")
-                      li(id=object.name)
-                          a(href='#') object.name
+                h3#noPLsh3  You have no Playlists!
+                #PLDisplayArea
               // end of groups section
               h1
                 | My Playlists 

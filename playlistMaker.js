@@ -46,12 +46,12 @@ var nestAjax = function(query, res){
 	    		} else {
 	    			if(resp2.songs.length !== 0){
 	    				tracks = resp1.songs.concat(resp2.songs);
-	    				console.log(tracks);
+	    				//console.log(tracks);
 	    				countLength(tracks, res);
 	    			}
 	    			else{
 	    				tracks = resp1.songs;
-	    				console.log(tracks);
+	    				//console.log(tracks);
 	    				countLength(tracks, res);
 	    			}
 
@@ -74,17 +74,6 @@ var getTrack = function(track_id){
 }
 
 var createPlaylist = function(query, res){
-
-	// var query = {
-	// 	"tempo": 600, //0-1000
-	// 	"genres": ["rock", "pop", "rap", "reggae","country"],
-	// 	"mood": 800, //0-1000
-	// 	"occasion": 1, //1-4
-	// 	"acousticness": 500, //0-1000
-	// 	"duration": 908765423456, // in ms starting from like 500000
-	// 	"bucket": ["id:spotify", "tracks"]
-	// };
-
 
 	if(query.duration === 0){
 		maxDuration = 9007199254740992;

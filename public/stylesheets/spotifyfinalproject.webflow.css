@@ -143,18 +143,18 @@ input[type=range]::-ms-track {
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 1px solid #000000;
-  height: 23px;
-  width: 10px;
+  height: 18px;
+  width: 18px;
   border-radius: 3px;
+
   background: #e1e8f0;
   cursor: pointer;
-  margin-top: -11px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+  margin-top: -7px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  /* Add cool effects to your sliders! */
 }
 
 /* All the same stuff for Firefox */
 input[type=range]::-moz-range-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
   border: 1px solid #000000;
   height: 23px;
   width: 10px;
@@ -165,12 +165,12 @@ input[type=range]::-moz-range-thumb {
 
 /* All the same stuff for IE */
 input[type=range]::-ms-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
+  
   height: 23px;
   width: 10px;
+  border:1px solid #999999;
   border-radius: 3px;
-  background: #e1e8f0;
+  background: #dadada 50% 50% repeat-x;
   cursor: pointer;
 }
 
@@ -180,7 +180,7 @@ input[type=range]::-webkit-slider-runnable-track {
   cursor: pointer;
   background: #9068be;
   border-radius: 1.3px;
-  border: 0.2px solid #010101;
+  border: 1px solid #9068be;
 }
 
 /*input[type=range]:focus::-webkit-slider-runnable-track {
@@ -193,17 +193,16 @@ input[type=range]::-moz-range-track {
   cursor: pointer;
   background: #9068be;
   border-radius: 1.3px;
-  border: 0.2px solid #010101;
+  border: 1px solid #9068be;
 }
 
 input[type=range]::-ms-track {
   width: 100%;
   height: 8.4px;
   cursor: pointer;
-  background: transparent;
-  border-color: transparent;
-  border-width: 16px 0;
-  color: transparent;
+  background: #9068be;
+  border-radius: 1.3px;
+  border: 1px solid #9068be;
 }
 input[type=range]::-ms-fill-lower {
   background: #3071a9;
